@@ -884,7 +884,7 @@ window.TJ_TOOLS = {"trading-journal": TJ_SRC_JOURNAL, "journal": TJ_SRC_JOURNAL,
       showAuth(d.view);
     } else if(d.type === 'tj-auth-google'){
       if(!authClient) return;
-      authClient.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.href } });
+      authClient.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin + window.location.pathname } });
     } else if(d.type === 'tj-auth-success'){
       if(!authClient){ enterApp(null); return; }
       authClient.auth.getSession().then(function(result){
