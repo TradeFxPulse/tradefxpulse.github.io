@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Trade Fx Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070d;
+    --ink:#F3F6FB;
+    --ink-soft:#94A1BD;
+    --ink-dim:#5A6786;
+    --azure-900:#0F3D91;
+    --azure-700:#1D5FE0;
+    --azure-500:#3B82F6;
+    --sky-400:#5FA8FA;
+    --cyan-glow:#38D9F0;
+    --gold:#E7C15C;
+    --green:#34D399;
+    --red:#FB7185;
+    --line:rgba(255,255,255,.10);
+    --card-glass:rgba(16,22,40,.55);
+    --card-border:rgba(255,255,255,.09);
+    --font-display:'Space Grotesk', system-ui, sans-serif;
+    --font-body:'Inter', system-ui, sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body);
+    line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{color:var(--sky-400);}
+  a:focus-visible{outline:2px solid var(--cyan-glow); outline-offset:3px;}
+
+  .bg-anim{ position:fixed; inset:0; z-index:-1; overflow:hidden; }
+  .bg-anim::before, .bg-anim::after{ content:''; position:absolute; border-radius:50%; filter:blur(90px); opacity:.35; }
+  .bg-anim::before{
+    width:620px; height:620px; top:-220px; right:-160px;
+    background:radial-gradient(circle, var(--azure-700), transparent 70%);
+    animation:float1 22s ease-in-out infinite;
+  }
+  .bg-anim::after{
+    width:560px; height:560px; bottom:-200px; left:-160px;
+    background:radial-gradient(circle, var(--cyan-glow), transparent 70%);
+    animation:float2 26s ease-in-out infinite;
+  }
+  .bg-grid{
+    position:fixed; inset:0; z-index:-1;
+    background-image:radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 20%, black 40%, transparent 90%);
+  }
+  @keyframes float1{ 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(-60px,80px) scale(1.12); } }
+  @keyframes float2{ 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(50px,-60px) scale(1.08); } }
+  @media (prefers-reduced-motion: reduce){ .bg-anim::before, .bg-anim::after{ animation:none; } }
+
+  nav.pillbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; gap:.4rem; overflow-x:auto;
+    padding:1rem 1.5rem;
+    background:rgba(5,7,13,.7);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
+    scrollbar-width:none;
+  }
+  nav.pillbar::-webkit-scrollbar{display:none;}
+  nav.pillbar a{
+    flex:0 0 auto; font-family:var(--font-mono); font-size:.74rem; color:var(--ink-soft);
+    text-decoration:none; padding:.5rem .9rem; border-radius:999px;
+    border:1px solid var(--card-border); background:var(--card-glass);
+    white-space:nowrap; transition:color .2s, border-color .2s;
+  }
+  nav.pillbar a:hover{ color:var(--ink); border-color:rgba(56,217,240,.4); }
+
+  header.hero{ max-width:820px; margin:0 auto; padding:5rem 1.5rem 3rem; text-align:center; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-family:var(--font-mono); font-size:.72rem; color:var(--gold);
+    background:rgba(231,193,92,.08); border:1px solid rgba(231,193,92,.25);
+    padding:.4rem .9rem; border-radius:999px; margin-bottom:1.5rem;
+  }
+  h1.hero-title{
+    font-family:var(--font-display); font-weight:700;
+    font-size:clamp(2.6rem, 7vw, 4.4rem); line-height:1.04; letter-spacing:-.02em;
+    margin:0 0 1.1rem;
+    background:linear-gradient(135deg, #fff 20%, var(--sky-400) 60%, var(--cyan-glow) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-sub{ color:var(--ink-soft); font-size:1.08rem; max-width:52ch; margin:0 auto; }
+  .hero-meta{
+    display:flex; justify-content:center; gap:1.8rem; margin-top:2.2rem;
+    font-family:var(--font-mono); font-size:.76rem; color:var(--ink-dim); flex-wrap:wrap;
+  }
+  .hero-meta b{ color:var(--ink-soft); font-weight:600; }
+
+  main{
+    max-width:1080px; margin:0 auto; padding:1rem 1.5rem 5rem;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.3rem;
+  }
+  .card{
+    background:var(--card-glass); border:1px solid var(--card-border); border-radius:20px;
+    padding:1.9rem 1.8rem; backdrop-filter:blur(18px) saturate(140%);
+    box-shadow:0 24px 54px -30px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.04) inset;
+    opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;
+  }
+  .card.in{ opacity:1; transform:translateY(0); }
+  .card.wide{ grid-column:1 / -1; }
+  .card-num{ font-family:var(--font-mono); font-size:.75rem; color:var(--cyan-glow); margin-bottom:.7rem; display:block; }
+  .card h2{ font-family:var(--font-display); font-weight:600; font-size:1.35rem; letter-spacing:-.01em; margin:0 0 .7rem; color:var(--ink); }
+  .card p{ color:var(--ink-soft); font-size:.95rem; margin:0 0 .6rem; }
+  .card p:last-child{ margin-bottom:0; }
+  .card ul{ margin:.6rem 0 0; padding-left:1.1rem; }
+  .card li{ color:var(--ink-soft); font-size:.93rem; margin-bottom:.4rem; }
+  .card a{ color:var(--sky-400); }
+  .card.accent{
+    background:linear-gradient(155deg, rgba(29,95,224,.14), rgba(56,217,240,.04)), var(--card-glass);
+    border-color:rgba(56,217,240,.28);
+  }
+  .card.warn{
+    background:linear-gradient(155deg, rgba(251,113,133,.14), rgba(251,113,133,.03)), var(--card-glass);
+    border-color:rgba(251,113,133,.3);
+  }
+  .card.warn h2{ color:#FFD3DA; }
+  .card.warn .card-num{ color:var(--red); }
+  .pulse-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--red);
+    display:inline-block; margin-right:.5rem; box-shadow:0 0 12px var(--red);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+  @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+
+  footer{
+    max-width:1080px; margin:0 auto; padding:2.5rem 1.5rem 4rem; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+    font-family:var(--font-mono); font-size:.78rem; color:var(--ink-dim);
+  }
+  footer a{ color:var(--ink-soft); text-decoration:none; }
+  footer a:hover{ color:var(--cyan-glow); }
+
+  @media (max-width:600px){
+    header.hero{ padding:3.5rem 1.25rem 2.5rem; }
+    main{ padding:1rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-anim"></div>
+<div class="bg-grid"></div>
+
+<nav class="pillbar" aria-label="Section jump links">
+  <a href="#service">The service</a>
+  <a href="#advice">Not advice</a>
+  <a href="#accounts">Accounts</a>
+  <a href="#conduct">Fair use</a>
+  <a href="#liability">Liability</a>
+  <a href="#law">Governing law</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header class="hero">
+  <span class="eyebrow">Trade Fx Pulse</span>
+  <h1 class="hero-title">The rules,<br>kept short.</h1>
+  <p class="hero-sub">Using Trade Fx Pulse means agreeing to these terms. Here's what that actually means — the short version.</p>
+  <div class="hero-meta">
+    <span>Effective <b>13 Sep 2026</b></span>
+    <span>Version <b>2.0</b></span>
+    <span>Jurisdiction <b>India</b></span>
+  </div>
+</header>
+
+<main>
+  <section class="card wide accent" id="service">
+    <span class="card-num">01 · THE SERVICE</span>
+    <h2>An information tool, not a broker</h2>
+    <p>Trade Fx Pulse shows forex and market data, and lets signed-in users save personal watchlists and preferences. We don't execute trades, hold funds, or connect to brokerage accounts.</p>
+  </section>
+
+  <section class="card wide warn" id="advice">
+    <span class="card-num">02 · NOT FINANCIAL ADVICE</span>
+    <h2><span class="pulse-dot"></span>Read this one carefully</h2>
+    <p>Everything on this site — prices, charts, commentary — is for information only, not investment advice. Forex trading carries real risk of loss. You're responsible for your own decisions; talk to a licensed advisor before acting on anything here.</p>
+  </section>
+
+  <section class="card" id="accounts">
+    <span class="card-num">03 · ACCOUNTS</span>
+    <h2>You own your account</h2>
+    <p>You're responsible for your Google account's security and anything that happens under it. See something off? Email us right away.</p>
+  </section>
+
+  <section class="card" id="conduct">
+    <span class="card-num">04 · FAIR USE</span>
+    <h2>Play fair with the platform</h2>
+    <ul>
+      <li>No unlawful use</li>
+      <li>No hacking, scraping, or overloading our systems</li>
+      <li>No impersonating someone else</li>
+    </ul>
+  </section>
+
+  <section class="card" id="data-accuracy">
+    <span class="card-num">05 · DATA ACCURACY</span>
+    <h2>Prices can lag</h2>
+    <p>Market data comes from third parties and can be delayed or wrong. Don't rely on it for split-second trading decisions.</p>
+  </section>
+
+  <section class="card" id="liability">
+    <span class="card-num">06 · LIABILITY</span>
+    <h2>Provided as-is</h2>
+    <p>We're not liable for losses — including trading losses — arising from your use of the Service, to the extent the law allows.</p>
+  </section>
+
+  <section class="card" id="law">
+    <span class="card-num">07 · GOVERNING LAW</span>
+    <h2>Indian law applies</h2>
+    <p>These terms are governed by the laws of India, and any disputes fall under the jurisdiction of Indian courts.</p>
+  </section>
+
+  <section class="card wide accent" id="contact">
+    <span class="card-num">08 · CONTACT</span>
+    <h2>Questions? Just ask.</h2>
+    <p>Email <a href="mailto:workflow2121@gmail.com">workflow2121@gmail.com</a> for anything about these terms. We may update them as the app grows — the date up top always reflects the latest version.</p>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Trade Fx Pulse</span>
+  <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="mailto:workflow2121@gmail.com">Contact</a></span>
+</footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('in'), i*40);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:.15 });
+  cards.forEach(c=>io.observe(c));
+</script>
+
+</body>
+</html>
